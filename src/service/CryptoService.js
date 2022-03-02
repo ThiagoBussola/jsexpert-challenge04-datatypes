@@ -11,7 +11,7 @@ class CryptoService {
 
     const dataInstance = (data) => new Crypto(data)
 
-    while (true) {
+    while (1) {
       page += 1
 
       const { data } = await this.repository.list(page)
