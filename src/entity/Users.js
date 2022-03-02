@@ -1,22 +1,29 @@
 import User from './User.js';
 
 // TODO: Criar um Symbol para a propriedade privada 'kUsers'
+const kUsers = Symbol('kUsers')
+const kData = Symbol('kData')
 class Users {
   constructor() {
     // TODO: inicializar a propriedade privada 'kData' como uma estrutura importante vista no curso
+    this.kData = new Set()
   }
 
   add(userRaw) {
-    const user = new User(userRaw);
-    // TODO: inserir valor na estrutura escolhida.
+    const user = new User(userRaw)
+    this[kData].add(user)
   }
 
   hasUsers() {
-    // TODO: Como saber se tem informação dentro da estrutura escolhida?
-    return false;
+    return this[kData].size > 0
   }
 
-  // TODO: Me parece que o objeto gerado precisa ser iterável 🤔
+  *[Symbol.iterator]() {
+    for (const user of this[kData]) {
+      yield user
+    }
+  }
+  
 }
 
 export default Users;

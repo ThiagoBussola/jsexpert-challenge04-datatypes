@@ -7,6 +7,17 @@ class CryptoService {
   }
   async *list() {
     // TODO: implementar generator que chama a repository fazendo a paginação
+    let page = 0
+
+    const dataInstance = (data) => new Crypto(data)
+
+    while (true) {
+      page += 1
+
+      const { data } = await this.repository.list(page)
+
+      yield data.map(dataInstance)
+    }
   }
 }
 
