@@ -6,7 +6,7 @@ const kData = Symbol('kData')
 class Users {
   constructor() {
     // TODO: inicializar a propriedade privada 'kData' como uma estrutura importante vista no curso
-    this.kData = new Set()
+    this[kData] = new Set()
   }
 
   add(userRaw) {

@@ -16,7 +16,7 @@ class CustomTerminal {
   constructor() {
     this[kPrint] = {};
     // TODO: inicializar a propriedade privada 'kData' como uma estrutura importante vista no curso
-    this[kData] = new Map()
+    this[kData] = new Map();
     this[kTerminal] = null;
   }
 
