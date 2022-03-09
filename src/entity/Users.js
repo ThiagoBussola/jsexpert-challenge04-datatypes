@@ -6,6 +6,7 @@ const kData = Symbol('kData')
 class Users {
   constructor() {
     // TODO: inicializar a propriedade privada 'kData' como uma estrutura importante vista no curso
+    // se eu colocar um weak set aqui daria problemas com o Symbol.iterator
     this[kData] = new Set()
   }
 
@@ -16,6 +17,11 @@ class Users {
 
   hasUsers() {
     return this[kData].size > 0
+  }
+
+  // Apenas para fins didáticos e para teste
+  deleteUser(user) {
+    return this[kData].delete(user)
   }
 
   *[Symbol.iterator]() {

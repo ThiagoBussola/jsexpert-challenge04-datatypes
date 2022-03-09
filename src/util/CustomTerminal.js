@@ -16,6 +16,7 @@ class CustomTerminal {
   constructor() {
     this[kPrint] = {};
     // TODO: inicializar a propriedade privada 'kData' como uma estrutura importante vista no curso
+    // também não deu certo colocar o weak map por aqui, problema com as chaves
     this[kData] = new Map();
     this[kTerminal] = null;
   }
